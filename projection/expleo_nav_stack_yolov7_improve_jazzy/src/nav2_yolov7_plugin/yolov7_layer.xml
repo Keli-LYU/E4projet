@@ -1,0 +1,6 @@
+  <library path="nav2_yolov7_plugin_core">
+    <class name="nav2_yolov7_plugin/Yolov7Layer" type="nav2_yolov7_plugin::Yolov7Layer" base_class_type="nav2_costmap_2d::Layer">
+      <description>This is a plugin which use the Yolov7 detections</description>
+    </class>
+  </library>
+

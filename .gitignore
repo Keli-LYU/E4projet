@@ -1,0 +1,108 @@
+# ROS / colcon build products
+**/build/
+**/install/
+**/log/
+**/.colcon/
+**/.colcon_install_layout
+**/COLCON_IGNORE
+**/AMENT_IGNORE
+
+# Python cache and packaging artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+*.egg-link
+dist/
+
+# C/C++ / CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+CTestTestfile.cmake
+CTestConfiguration.ini
+Testing/
+*.o
+*.so
+*.a
+*.dll
+*.dylib
+*.exe
+
+# Editor and OS temporary files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Local environment files and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Runtime logs and temporary files
+*.log
+*.tmp
+*.temp
+*.pid
+*.lock
+tmp/
+temp/
+
+# ROS bags and recorded datasets
+*.bag
+*.db3
+*.mcap
+metadata.yaml
+
+# Maps and simulator assets
+projection/expleo_nav_stack_yolov7_improve_jazzy/src/maps/
+*.pgm
+*.xodr
+*.osm
+*.obj
+*.fbx
+*.dae
+*.glb
+*.gltf
+
+# Machine-learning weights and generated model exports
+projection/expleo_nav_stack_yolov7_improve_jazzy/src/autonomous-forklift-for-harbor/src/object_detection/weight/
+*.pt
+*.pth
+*.onnx
+*.engine
+*.weights
+*.ckpt
+*.tflite
+
+# Image/video/data resources
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.tif
+*.tiff
+*.gif
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.pcd
+*.ply
+*.npy
+*.npz
+*.csv
+
+# Local visualization/session config
+*.rviz

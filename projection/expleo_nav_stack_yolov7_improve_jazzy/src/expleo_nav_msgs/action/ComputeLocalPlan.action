@@ -1,0 +1,28 @@
+# Error codes
+# Note: The expected priority order of the errors should match the message order
+uint16 NONE=0
+uint16 INVALID_PLANNER=201
+uint16 TF_ERROR=202
+uint16 TIMEOUT=203
+uint16 NO_VALID_PATH=204
+
+## input definition
+
+# path computed by the global planner, based on which the local planner will operate
+nav_msgs/Path global_path
+
+# ID of the planner to use (name)
+string planner_id
+---
+## result definition
+
+# local path computed by the local planner
+nav_msgs/Path local_path
+
+# duration of the local planning step
+builtin_interfaces/Duration planning_time
+
+# error code
+uint16 error_code
+---
+# feedback definition

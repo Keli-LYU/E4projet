@@ -1,0 +1,47 @@
+For each step open a new terminal.
+
+This copy is located at:
+/home/lyukeli/E4projet/projection/expleo_nav_stack_yolov7_improve_jazzy
+
+CARLA runs on Windows and this ROS2 project runs in WSL2. The launch file now
+auto-detects the Windows host through:
+/home/lyukeli/E4projet/projection/wsl-bridge/wsl-bridge.py
+
+# Step 0: clean copied build files and rebuild
+
+cd /home/lyukeli/E4projet
+projection/wsl-bridge/clean.bash
+
+# Step 1: run CARLA on Windows
+
+Start CARLA 0.9.16 on Windows and make sure port 2000 is reachable from WSL2.
+You can check it in WSL2 with:
+
+cd /home/lyukeli/E4projet
+projection/wsl-bridge/wsl-bridge.py --print-host --require-open
+
+# Step 2: run CARLA ROS bridge
+
+source /opt/ros/jazzy/setup.bash
+source /home/lyukeli/ros-bridge/install/local_setup.bash
+source /home/lyukeli/E4projet/projection/expleo_nav_stack_yolov7_improve_jazzy/install/local_setup.bash
+ros2 launch expleo_nav_stack carla_bridge_bringup.launch.py
+
+# Step 3: run projection node
+
+source /opt/ros/jazzy/setup.bash
+source /home/lyukeli/ros-bridge/install/local_setup.bash
+source /home/lyukeli/E4projet/projection/expleo_nav_stack_yolov7_improve_jazzy/install/local_setup.bash
+ros2 run projection projection_node
+
+# Step 4: run RViz
+
+source /opt/ros/jazzy/setup.bash
+source /home/lyukeli/ros-bridge/install/local_setup.bash
+source /home/lyukeli/E4projet/projection/expleo_nav_stack_yolov7_improve_jazzy/install/local_setup.bash
+rviz2
+
+# RViz config
+
+The RViz config is:
+/home/lyukeli/E4projet/projection/default.rviz

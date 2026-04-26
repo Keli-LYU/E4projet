@@ -1,0 +1,2 @@
+std_msgs/Header header
+DetectionBounds[] detection_bounds_list

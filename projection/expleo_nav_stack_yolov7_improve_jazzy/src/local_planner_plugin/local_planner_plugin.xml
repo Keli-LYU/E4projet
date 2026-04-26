@@ -1,0 +1,9 @@
+<library path="template_local_planner_plugin">
+  <class name="local_planner_plugin/TemplateLocalPlanner"
+    type="expleo_nav_stack::TemplateLocalPlanner"
+    base_class_type="expleo_nav_stack::LocalPlanner">
+    <description>
+      This is an example plugin which produces the same path. 
+    </description>
+  </class>
+</library>
