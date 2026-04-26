@@ -106,3 +106,5 @@ projection/expleo_nav_stack_yolov7_improve_jazzy/src/autonomous-forklift-for-har
 
 # Local visualization/session config
 *.rviz
+
+OLD/

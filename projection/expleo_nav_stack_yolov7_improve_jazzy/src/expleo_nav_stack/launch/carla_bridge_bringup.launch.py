@@ -39,7 +39,7 @@ def generate_launch_description():
         ("town", "Town10HD"),
         ("passive", "False"),
         ("synchronous_mode_wait_for_vehicle_control_command", "False"),
-        ("fixed_delta_seconds", "0.05"),
+        ("fixed_delta_seconds", "0.05"), # 20 FPS（仿真步长）
         ("spawn_point_ego_vehicle",{"x": -74.4, "y": 35.6, "z": 0.0,"roll": 0.0, "pitch": 0.0, "yaw": -180}),
         ("vehicle_filter", "vehicle.*"),
     ]

@@ -1,0 +1,7 @@
+新增 wsl-bridge.py (line 1)：自动探测 WSL2 到 Windows CARLA 的 host，当前检测为 172.31.16.1:2000，并处理 CARLA .whl 造成的 carla.libcarla 导入问题。
+新增 clean.bash (line 1)：清理复制过来的旧 build/install/log，净化环境并重建。
+修改 carla_bridge_bringup.launch.py (line 1)：默认 host 不再是 localhost，会引用 wsl-bridge.py 自动连接 Windows CARLA。
+修改 projection_node.py (line 306)：关停时不再打印 traceback。
+更新 How to run (projection test).txt (line 1)：改成当前机器路径和 local_setup.bash 用法。
+source /home/lyukeli/ros-bridge/install/local_setup.bash
+source /home/lyukeli/E4projet/projection/expleo_nav_stack_yolov7_improve_jazzy/install/local_setup.bash
