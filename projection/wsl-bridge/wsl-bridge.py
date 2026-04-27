@@ -46,15 +46,20 @@ def _read_default_gateway() -> str | None:
 
 
 def candidate_hosts() -> list[str]:
-    """Return likely CARLA hosts from most to least WSL2-specific."""
+    """Return likely CARLA hosts.
+
+    Explicit environment overrides are tried first. Without an override, prefer a
+    Linux/WSL-local CARLA server, then fall back to the Windows host reachable
+    through the WSL2 gateway.
+    """
     candidates = [
         os.environ.get("CARLA_HOST"),
         os.environ.get("WSL_CARLA_HOST"),
+        "127.0.0.1",
+        "localhost",
         _read_resolv_conf_nameserver(),
         _read_default_gateway(),
         "host.docker.internal",
-        "localhost",
-        "127.0.0.1",
     ]
 
     seen: set[str] = set()
@@ -82,8 +87,8 @@ def detect_carla_host(
     """Pick a CARLA host for WSL2.
 
     When CARLA is already running, the first reachable candidate is returned.
-    If it is not running yet, fall back to the WSL2 nameserver/default gateway so
-    the launch default still points at the Windows host instead of localhost.
+    If nothing is reachable yet, fall back to the WSL2 nameserver/default
+    gateway so the launch default still points at the Windows host.
     """
     candidates = candidate_hosts()
     for host in candidates:
@@ -95,7 +100,7 @@ def detect_carla_host(
             f"CARLA is not reachable on port {port}; tried: {', '.join(candidates)}"
         )
 
-    return _read_resolv_conf_nameserver() or _read_default_gateway() or "localhost"
+    return _read_resolv_conf_nameserver() or _read_default_gateway() or "127.0.0.1"
 
 
 def sanitize_pythonpath(value: str | None = None) -> str:
