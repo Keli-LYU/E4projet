@@ -5,8 +5,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECTION_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 WS_DIR="${PROJECTION_DIR}/expleo_nav_stack_yolov7_improve_jazzy"
 ROS_SETUP="${ROS_SETUP:-/opt/ros/jazzy/setup.bash}"
-ROS_BRIDGE_DIR="${ROS_BRIDGE_DIR:-/home/lyukeli/ros-bridge}"
-CARLA_ROOT="${CARLA_ROOT:-/home/lyukeli/carla}"
+ROS_BRIDGE_DIR="${ROS_BRIDGE_DIR:-${HOME}/ros-bridge}"
+CARLA_ROOT="${CARLA_ROOT:-${HOME}/carla}"
 
 if [[ ! -f "${ROS_SETUP}" ]]; then
   echo "Missing ROS setup: ${ROS_SETUP}" >&2
