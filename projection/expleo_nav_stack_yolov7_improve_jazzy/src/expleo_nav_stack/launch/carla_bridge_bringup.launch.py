@@ -35,13 +35,20 @@ def generate_launch_description():
         ("port", "2000"),
         ("timeout", "20"),
         ("role_name", "ego_vehicle"),
-        ("spawn_point", {"x": -74.4, "y": 35.6, "z": 0.0,"roll": 0.0, "pitch": 0.0, "yaw": -180}),
         ("town", "Town10HD"),
         ("passive", "False"),
         ("synchronous_mode_wait_for_vehicle_control_command", "False"),
         ("fixed_delta_seconds", "0.05"), # 20 FPS（仿真步长）
-        ("spawn_point_ego_vehicle",{"x": -74.4, "y": 35.6, "z": 0.0,"roll": 0.0, "pitch": 0.0, "yaw": -180}),
+        ("spawn_point_ego_vehicle",{"x": -84.4, "y": 35.6, "z": 0.0,"roll": 0.0, "pitch": 0.0, "yaw": -180}),
         ("vehicle_filter", "vehicle.*"),
+        (
+            "objects_definition_file",
+            os.path.join(
+                get_package_share_directory("expleo_nav_stack"),
+                "params",
+                "tesla_with_sensors.json",
+            ),
+        ),
     ]
 
     for param, default in launch_arguments:
@@ -96,8 +103,11 @@ def generate_launch_description():
                         "role_name": launch.substitutions.LaunchConfiguration(
                             "role_name"
                         ),
-                        "spawn_point": launch.substitutions.LaunchConfiguration(
-                            "spawn_point"
+                        "spawn_point_ego_vehicle": launch.substitutions.LaunchConfiguration(
+                            "spawn_point_ego_vehicle"
+                        ),
+                        "objects_definition_file": launch.substitutions.LaunchConfiguration(
+                            "objects_definition_file"
                         ),
                     }.items(),
                 )

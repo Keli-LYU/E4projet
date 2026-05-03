@@ -18,7 +18,7 @@ def generate_launch_description():
                 "tesla_with_sensors.json",
             ),
         ),
-        ("spawn_point_ego_vehicle", {"x": -74.4, "y": 35.6, "z": 0.0,"roll": 0.0, "pitch": 0.0, "yaw": -180}),
+        ("spawn_point_ego_vehicle", {"x": -84.4, "y": 35.6, "z": 0.0,"roll": 0.0, "pitch": 0.0, "yaw": -180}),
         ("spawn_sensors_only", "False"),
     ]
 
